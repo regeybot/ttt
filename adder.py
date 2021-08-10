@@ -4,16 +4,18 @@
 # Please give me credits if you use any codes from here.
 
 
+import csv
 import random
+import sys
 import time
 import traceback
-import csv
-import sys
-from telethon.tl.functions.channels import InviteToChannelRequest
-from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError
-from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser
-from telethon.tl.functions.messages import GetDialogsRequest
+
+from telethon.errors.rpcerrorlist import (PeerFloodError,
+                                          UserPrivacyRestrictedError)
 from telethon.sync import TelegramClient
+from telethon.tl.functions.channels import InviteToChannelRequest
+from telethon.tl.functions.messages import GetDialogsRequest
+from telethon.tl.types import InputPeerChannel, InputPeerEmpty, InputPeerUser
 
 print("\033[1;92m")
 print("░█▀█░█▀▄░█▀▄░█▀▀░█▀▄")
