@@ -69,8 +69,7 @@ result = client(
         offset_peer=InputPeerEmpty(),
         limit=chunk_size,
         hash=0,
-    )
-)
+    ))
 chats.extend(result.chats)
 
 for chat in chats:
@@ -89,7 +88,8 @@ for group in groups:
 g_index = input("Enter a Number: ")
 target_group = groups[int(g_index)]
 
-target_group_entity = InputPeerChannel(target_group.id, target_group.access_hash)
+target_group_entity = InputPeerChannel(target_group.id,
+                                       target_group.access_hash)
 
 mode = int(input("Enter 1 to add by username or 2 to add by ID: "))
 
@@ -119,7 +119,9 @@ for user in users:
         print("Waiting {} seconds".format(SLEEP_TIME_2))
         time.sleep(SLEEP_TIME_2)
     except UserPrivacyRestrictedError:
-        print("The user's privacy settings do not allow you to do this. Skipping ...")
+        print(
+            "The user's privacy settings do not allow you to do this. Skipping ..."
+        )
         print("Waiting for 5 Seconds ...")
         time.sleep(random.randrange(1, 5))
     except:
