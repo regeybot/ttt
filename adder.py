@@ -4,28 +4,30 @@
 # Please give me credits if you use any codes from here.
 
 
-print ("\033[1;92m")
-print ("░█▀█░█▀▄░█▀▄░█▀▀░█▀▄")
-print ("░█▀█░█░█░█░█░█▀▀░█▀▄")
-print ("░▀░▀░▀▀░░▀▀░░▀▀▀░▀░▀")
-print ("")
-print ("      by \033[1;95m@AbirHasan2005")
-print ("\033[1;92m")
-from telethon.sync import TelegramClient
-from telethon.tl.functions.messages import GetDialogsRequest
-from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser
-from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError
-from telethon.tl.functions.channels import InviteToChannelRequest
-import sys
-import csv
-import traceback
-import time
 import random
+import time
+import traceback
+import csv
+import sys
+from telethon.tl.functions.channels import InviteToChannelRequest
+from telethon.errors.rpcerrorlist import PeerFloodError, UserPrivacyRestrictedError
+from telethon.tl.types import InputPeerEmpty, InputPeerChannel, InputPeerUser
+from telethon.tl.functions.messages import GetDialogsRequest
+from telethon.sync import TelegramClient
+print("\033[1;92m")
+print("░█▀█░█▀▄░█▀▄░█▀▀░█▀▄")
+print("░█▀█░█░█░█░█░█▀▀░█▀▄")
+print("░▀░▀░▀▀░░▀▀░░▀▀▀░▀░▀")
+print("")
+print("      by \033[1;95m@AbirHasan2005")
+print("\033[1;92m")
 
-api_id = '1655760'   #Enter Your 7 Digit Telegram API ID.
-api_hash = '887513e49c5e3004ea92c0104403c4c3'   #Enter Yor 32 Character API Hash
-phone = '+17099076670'   #Enter Your Mobilr Number With Country Code.
+api_id = '1655760'  # Enter Your 7 Digit Telegram API ID.
+api_hash = '887513e49c5e3004ea92c0104403c4c3'  # Enter Yor 32 Character API Hash
+phone = '+17099076670'  # Enter Your Mobilr Number With Country Code.
 client = TelegramClient(phone, api_id, api_hash)
+
+
 async def main():
     # Now you can use all client methods listed below, like for example...
     await client.send_message('me', 'Hello !!!!!')
@@ -41,8 +43,8 @@ if not client.is_user_authorized():
     client.sign_in(phone, input('40779'))
 
 users = []
-with open(r"members.csv", encoding='UTF-8') as f:  #Enter your file name
-    rows = csv.reader(f,delimiter=",",lineterminator="\n")
+with open(r"members.csv", encoding='UTF-8') as f:  # Enter your file name
+    rows = csv.reader(f, delimiter=",", lineterminator="\n")
     next(rows, None)
     for row in rows:
         user = {}
@@ -82,7 +84,8 @@ for group in groups:
 g_index = input("Enter a Number: ")
 target_group = groups[int(g_index)]
 
-target_group_entity = InputPeerChannel(target_group.id, target_group.access_hash)
+target_group_entity = InputPeerChannel(
+    target_group.id, target_group.access_hash)
 
 mode = int(input("Enter 1 to add by username or 2 to add by ID: "))
 
